@@ -1,10 +1,21 @@
 import { makeExecutableSchema } from "@graphql-tools/schema";
 
 const typeDefinitions = /* GraphQL */ `
-  type Query {
-    healthCheck: String!
+type Query {
+  healthCheck: String!
+}
+
+type Query {
+    info: String!
+    feed: [Link!]!
   }
-`;
+
+  type Link {
+    id: ID!
+    description: String!
+    url: String!
+  }
+`
 
 const resolvers = {
   Query: {
